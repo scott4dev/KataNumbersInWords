@@ -3,7 +3,7 @@ const chai = require('chai')
 
 const Converter = require('../src/index');
 
-describe('Converter', () => {
+describe('Convert from 10 to 13', () => {
 
 	it('should convert 10', () => {
 		const sut = new Converter();

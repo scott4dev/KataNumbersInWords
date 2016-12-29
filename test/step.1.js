@@ -3,7 +3,7 @@ const chai = require('chai')
 
 const Converter = require('../src/index');
 
-describe('Converter', () => {
+describe('Convert from 0 to 10', () => {
 
 	it('should convert 0', () => {
 		const sut = new Converter();
@@ -56,7 +56,7 @@ describe('Converter', () => {
 	it('should convert 8', () => {
 		const sut = new Converter();
 		const result = sut.convert(8);
-		result.should.equal('eigth');
+		result.should.equal('eight');
 	});
 
 	it('should convert 9', () => {
