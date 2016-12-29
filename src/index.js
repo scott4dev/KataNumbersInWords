@@ -4,11 +4,16 @@ const Converter = class Converter {
 
 	convert(number) {
 
-		const numbers = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen', 'twenty'];
+		const numbers = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
+		const tens = ['', '', 'twenty', 'thirty']
 
-		if (number > 20) {
-			const index = number - 20;
-			return `twenty-${numbers[index]}`;
+		if (number > 19) {
+			const x = parseInt(number / 10);
+			const firstDigitIndex = number % 10;
+			if (firstDigitIndex > 0) {
+				return `${tens[x]}-${numbers[firstDigitIndex]}`;
+			}
+			return `${tens[x]}`;
 		}
 
 		return numbers[number];
