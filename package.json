@@ -1,0 +1,26 @@
+{
+  "name": "kata-numbers-in-words",
+  "version": "0.0.1",
+  "description": "A simple implementation of this [kata] (http://www.codingdojo.org/cgi-bin/index.pl?KataNumbersInWords)",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scott4dev/KataNumbersInWords.git"
+  },
+  "keywords": [
+    "kata"
+  ],
+  "author": "Claudio Maccari",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/scott4dev/KataNumbersInWords/issues"
+  },
+  "homepage": "https://github.com/scott4dev/KataNumbersInWords#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
+  }
+}
