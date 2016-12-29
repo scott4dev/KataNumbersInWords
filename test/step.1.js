@@ -1,7 +1,7 @@
 const chai = require('chai')
 	, should = chai.should();
 
-const Converter = require('../index');
+const Converter = require('../src/index');
 
 describe('Converterl', () => {
 
@@ -10,5 +10,5 @@ describe('Converterl', () => {
 		const result = sut.convert(1);
 		result.should.equal('one');
 	});
-	
+
 });
