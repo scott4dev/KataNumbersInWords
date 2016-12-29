@@ -1,8 +1,10 @@
 'use strict';
 
 const Converter = class Converter {
-	convert() {
-		return 'one';
+
+	convert(number) {
+		const numbers = ['zero', 'one', 'two'];
+		return numbers[number];
 	}
 }
 
