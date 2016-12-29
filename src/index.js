@@ -5,7 +5,7 @@ const Converter = class Converter {
 	convert(number) {
 
 		const numbers = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
-		const tens = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty']
+		const tens = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy']
 
 		if (number > 19) {
 			const x = parseInt(number / 10);
