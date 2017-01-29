@@ -7,6 +7,9 @@ const convert = (number) => {
 	if (number < 0)
 		return 'not yet supported';
 
+	if (Number.isInteger(number) == false)
+		return 'not yet supported';
+
 	if (number > 999) {
 		const module = number % 1000;
 		const x = parseInt(number / 1000);

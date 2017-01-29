@@ -11,4 +11,10 @@ describe('Not yet supported', () => {
 		const result = convert(-1);
 		result.should.equal('not yet supported');
 	});
+
+
+	it('should NOT convert float', () => {
+		const result = convert(Math.PI);
+		result.should.equal('not yet supported');
+	});
 });
