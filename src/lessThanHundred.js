@@ -10,7 +10,7 @@ const convert = (input) => {
 		const x = parseInt(input / 10);
 		const firstDigitIndex = input % 10;
 		if (firstDigitIndex > 0) {
-			return `${tens[x]}-${numbers[firstDigitIndex]}`;
+			return `${tens[x]}-${convert(firstDigitIndex)}`;
 		}
 		return `${tens[x]}`;
 	}
