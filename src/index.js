@@ -1,6 +1,12 @@
 'use strict';
 
+const lessThanHundred = require('./lessThanHundred');
+
 const Converter = class Converter {
+
+	constructor() {
+		this.lessThanHundred = lessThanHundred;
+	}
 
 	convert(number) {
 		if (number > 99) {
@@ -15,20 +21,6 @@ const Converter = class Converter {
 		return this.lessThanHundred(number);
 	}
 
-	lessThanHundred(number) {
-		const numbers = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
-		const tens = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety']
-		if (number > 19) {
-			const x = parseInt(number / 10);
-			const firstDigitIndex = number % 10;
-			if (firstDigitIndex > 0) {
-				return `${tens[x]}-${numbers[firstDigitIndex]}`;
-			}
-			return `${tens[x]}`;
-		}
-
-		return numbers[number];
-	}
 }
 
 module.exports = Converter;
