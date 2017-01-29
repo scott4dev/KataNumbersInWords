@@ -2,19 +2,25 @@
 
 const lessThanHundred = require('./lessThanHundred');
 
-const suffix = {
-	100: 'and',
+const separator = {
+	100: ' and',
 	1000: ',',
-	1000000: ''
+	1000000: ','
 };
 
-const f = (input, divider, suffix, separator) => {
+const suffix = {
+	100: 'hundred',
+	1000: 'thousand',
+	1000000: 'million'
+};
+
+const f = (input, divider) => {
 	const module = input % divider;
 	const quotient = parseInt(input / divider);
 	if (module == 0) {
-		return convert(quotient) + ' ' + suffix;
+		return convert(quotient) + ' ' + suffix[divider];
 	}
-	return convert(quotient) + ' ' + suffix + `${separator} ` + convert(module);
+	return convert(quotient) + ' ' + suffix[divider] + `${separator[divider]} ` + convert(module);
 }
 
 const convert = (input) => {
@@ -26,15 +32,15 @@ const convert = (input) => {
 		return 'not yet supported';
 
 	if (input >= 1000000) {
-		return f(input, 1000000, 'million', ',');
+		return f(input, 1000000);
 	}
 
 	if (input >= 1000) {
-		return f(input, 1000, 'thousand', ',');
+		return f(input, 1000);
 	}
 
 	if (input >= 100) {
-		return f(input, 100, 'hundred', ' and');
+		return f(input, 100);
 	}
 
 	return lessThanHundred(input);
