@@ -2,33 +2,34 @@
 
 const lessThanHundred = require('./lessThanHundred');
 
-const convert = (number) => {
 
-	if (number < 0)
+const convert = (input) => {
+
+	if (input < 0)
 		return 'not yet supported';
 
-	if (Number.isInteger(number) == false)
+	if (Number.isInteger(input) == false)
 		return 'not yet supported';
 
-	if (number > 999) {
-		const module = number % 1000;
-		const x = parseInt(number / 1000);
+	if (input > 999) {
+		const module = input % 1000;
+		const x = parseInt(input / 1000);
 		if (module == 0) {
 			return convert(x) + ' thousand';
 		}
 		return convert(x) + ' thousand, ' + convert(module);
 	}
 
-	if (number > 99) {
-		const module = number % 100;
-		const x = parseInt(number / 100);
+	if (input > 99) {
+		const module = input % 100;
+		const x = parseInt(input / 100);
 		if (module == 0) {
 			return lessThanHundred(x) + ' hundred';
 		}
 		return lessThanHundred(x) + ' hundred and ' + lessThanHundred(module);
 	}
 
-	return lessThanHundred(number);
+	return lessThanHundred(input);
 }
 
 module.exports = convert;
