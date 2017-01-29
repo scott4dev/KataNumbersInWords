@@ -2,6 +2,20 @@
 
 const lessThanHundred = require('./lessThanHundred');
 
+const suffix = {
+	100: 'and',
+	1000: ',',
+	1000000: ''
+};
+
+const f = (input, divider, suffix, separator) => {
+	const module = input % divider;
+	const quotient = parseInt(input / divider);
+	if (module == 0) {
+		return convert(quotient) + ' ' + suffix;
+	}
+	return convert(quotient) + ' ' + suffix + `${separator} ` + convert(module);
+}
 
 const convert = (input) => {
 
@@ -11,31 +25,16 @@ const convert = (input) => {
 	if (Number.isInteger(input) == false)
 		return 'not yet supported';
 
-	if (input > 999999) {
-		const module = input % 1000000;
-		const x = parseInt(input / 1000000);
-		if (module == 0) {
-			return convert(x) + ' million';
-		}
-		return convert(x) + ' million, ' + convert(module);
+	if (input >= 1000000) {
+		return f(input, 1000000, 'million', ',');
 	}
 
-	if (input > 999) {
-		const module = input % 1000;
-		const x = parseInt(input / 1000);
-		if (module == 0) {
-			return convert(x) + ' thousand';
-		}
-		return convert(x) + ' thousand, ' + convert(module);
+	if (input >= 1000) {
+		return f(input, 1000, 'thousand', ',');
 	}
 
-	if (input > 99) {
-		const module = input % 100;
-		const x = parseInt(input / 100);
-		if (module == 0) {
-			return lessThanHundred(x) + ' hundred';
-		}
-		return lessThanHundred(x) + ' hundred and ' + lessThanHundred(module);
+	if (input >= 100) {
+		return f(input, 100, 'hundred', ' and');
 	}
 
 	return lessThanHundred(input);
