@@ -3,19 +3,21 @@
 const Converter = class Converter {
 
 	convert(number) {
-
-		const numbers = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
-		const tens = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety']
-
 		if (number > 99) {
-			const module = number % 100; 
-			const x = parseInt(number/100);
-			if(module == 0){
-				return this.convert(x) + ' hundred';
+			const module = number % 100;
+			const x = parseInt(number / 100);
+			if (module == 0) {
+				return this.lessThanHundred(x) + ' hundred';
 			}
-			return this.convert(x) + ' hundred and ' + this.convert(module) ;
+			return this.lessThanHundred(x) + ' hundred and ' + this.lessThanHundred(module);
 		}
 
+		return this.lessThanHundred(number);
+	}
+
+	lessThanHundred(number) {
+		const numbers = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
+		const tens = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety']
 		if (number > 19) {
 			const x = parseInt(number / 10);
 			const firstDigitIndex = number % 10;
