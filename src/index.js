@@ -11,6 +11,15 @@ const convert = (input) => {
 	if (Number.isInteger(input) == false)
 		return 'not yet supported';
 
+	if (input > 999999) {
+		const module = input % 1000000;
+		const x = parseInt(input / 1000000);
+		if (module == 0) {
+			return convert(x) + ' million';
+		}
+		return convert(x) + ' million, ' + convert(module);
+	}
+
 	if (input > 999) {
 		const module = input % 1000;
 		const x = parseInt(input / 1000);
