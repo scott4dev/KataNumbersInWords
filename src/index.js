@@ -8,10 +8,12 @@ const Converter = class Converter {
 		const tens = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety']
 
 		if (number > 99) {
-			if(number % 100 == 0){
-				return this.convert(parseInt(number/100)) + ' hundred';
+			const module = number % 100; 
+			const x = parseInt(number/100);
+			if(module == 0){
+				return this.convert(x) + ' hundred';
 			}
-			return this.convert(parseInt(number/100)) + ' hundred and ' + this.convert(number % 100) ;
+			return this.convert(x) + ' hundred and ' + this.convert(module) ;
 		}
 
 		if (number > 19) {
