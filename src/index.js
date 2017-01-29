@@ -2,25 +2,17 @@
 
 const lessThanHundred = require('./lessThanHundred');
 
-const Converter = class Converter {
-
-	constructor() {
-		this.lessThanHundred = lessThanHundred;
-	}
-
-	convert(number) {
-		if (number > 99) {
-			const module = number % 100;
-			const x = parseInt(number / 100);
-			if (module == 0) {
-				return this.lessThanHundred(x) + ' hundred';
-			}
-			return this.lessThanHundred(x) + ' hundred and ' + this.lessThanHundred(module);
+const convert = (number) => {
+	if (number > 99) {
+		const module = number % 100;
+		const x = parseInt(number / 100);
+		if (module == 0) {
+			return lessThanHundred(x) + ' hundred';
 		}
-
-		return this.lessThanHundred(number);
+		return lessThanHundred(x) + ' hundred and ' + lessThanHundred(module);
 	}
 
+	return lessThanHundred(number);
 }
 
-module.exports = Converter;
+module.exports = convert;
