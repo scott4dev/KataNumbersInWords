@@ -4,7 +4,8 @@
   "description": "A simple implementation of this [kata] (http://www.codingdojo.org/cgi-bin/index.pl?KataNumbersInWords)",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "test:dev": "mocha -w"
   },
   "repository": {
     "type": "git",
