@@ -3,7 +3,7 @@ const chai = require('chai')
 
 const convert = require('../src/index');
 
-describe('Convert from 1000 to 9999', () => {
+describe('Convert from 1000 to 99999', () => {
 
 	it('should convert 1000', () => {
 		const result = convert(1000);
@@ -33,5 +33,15 @@ describe('Convert from 1000 to 9999', () => {
 	it('should convert 4011', () => {
 		const result = convert(4011);
 		result.should.equal('four thousand, eleven');
+	});
+
+	it('should convert 14011', () => {
+		const result = convert(14011);
+		result.should.equal('fourteen thousand, eleven');
+	});
+
+	it('should convert 99999', () => {
+		const result = convert(99999);
+		result.should.equal('ninety-nine thousand, nine hundred and ninety-nine');
 	});
 });
